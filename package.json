@@ -1,0 +1,14 @@
+{
+  "name": "historicalPrice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.ts",
+  "dependencies": {
+    "@moralisweb3/common-evm-utils": "^2.22.5",
+    "axios": "^0.27.2",
+    "dotenv": "^14.2.3",
+    "express": "^4.18.2",
+    "jsbi": "^3.2.5",
+    "moralis": "^2.22.5"
+  }
+}
