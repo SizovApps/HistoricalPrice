@@ -10,8 +10,11 @@ dotenv.config()
 const MORALIS_API_KEY = process.env["MORALIS_API_KEY"]
 
 export class GetPriceServiceMoralis implements IGetPriceService {
-    async getPriceOfToken(tokenAddress: string, blockchainName: string, timestamp: number): Promise<number> {
-        await Moralis.start({apiKey: MORALIS_API_KEY,});
+    async getPriceOfToken(tokenAddress: string, blockchainName: string, timestamp: number): Promise<number|null> {
+
+        if (!Moralis.Core.isStarted) {
+            await Moralis.start({apiKey: MORALIS_API_KEY});
+        }
 
         const date = new Date(timestamp).toString();
         const chain = EvmChain.ETHEREUM;

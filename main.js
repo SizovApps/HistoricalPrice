@@ -47,4 +47,8 @@ function getHistoricalPrice(tokenAddress, blockchainName, timestamp) {
         });
     });
 }
-getHistoricalPrice("0x02a2eb0f234cc3fd981ee7b8b616e02fb4a3e035", "ETH", 1693913134000).then(function (price) { return console.log("Token price: ", price); });
+var i = 0;
+while (i < 100) {
+    getHistoricalPrice("0x02a2eb0f234cc3fd981ee7b8b616e02fb4a3e035", "ETH", 1693913134000).then(function (price) { return console.log("Token price: ", price); });
+    i++;
+}

@@ -52,38 +52,42 @@ var GetPriceServiceMoralis = /** @class */ (function () {
             var date, chain, blockResponse, moralisBlockResponse, toBlock, address, historicalPriceResponse, moralisHistoricalPriceResponse, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, moralis_1.default.start({ apiKey: MORALIS_API_KEY, })];
+                    case 0:
+                        if (!!moralis_1.default.Core.isStarted) return [3 /*break*/, 2];
+                        return [4 /*yield*/, moralis_1.default.start({ apiKey: MORALIS_API_KEY })];
                     case 1:
                         _a.sent();
+                        _a.label = 2;
+                    case 2:
                         date = new Date(timestamp).toString();
                         chain = common_evm_utils_1.EvmChain.ETHEREUM;
                         return [4 /*yield*/, moralis_1.default.EvmApi.block.getDateToBlock({
                                 date: date,
                                 chain: chain,
                             })];
-                    case 2:
+                    case 3:
                         blockResponse = _a.sent();
                         moralisBlockResponse = new MoralisBlockResponse_1.MoralisBlockResponse();
                         Object.assign(moralisBlockResponse, blockResponse === null || blockResponse === void 0 ? void 0 : blockResponse.toJSON());
                         toBlock = moralisBlockResponse.block;
                         address = common_evm_utils_1.EvmAddress.create(tokenAddress);
-                        _a.label = 3;
-                    case 3:
-                        _a.trys.push([3, 5, , 6]);
+                        _a.label = 4;
+                    case 4:
+                        _a.trys.push([4, 6, , 7]);
                         return [4 /*yield*/, moralis_1.default.EvmApi.token.getTokenPrice({
                                 address: address,
                                 chain: chain,
                                 toBlock: toBlock
                             })];
-                    case 4:
+                    case 5:
                         historicalPriceResponse = _a.sent();
                         moralisHistoricalPriceResponse = new MoralisHistoricalPriceResponse_1.MoralisHistoricalPriceResponse();
                         Object.assign(moralisHistoricalPriceResponse, historicalPriceResponse === null || historicalPriceResponse === void 0 ? void 0 : historicalPriceResponse.toJSON());
                         return [2 /*return*/, moralisHistoricalPriceResponse.usdPrice];
-                    case 5:
+                    case 6:
                         error_1 = _a.sent();
                         return [2 /*return*/, null];
-                    case 6: return [2 /*return*/];
+                    case 7: return [2 /*return*/];
                 }
             });
         });
