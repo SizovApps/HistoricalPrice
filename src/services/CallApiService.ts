@@ -3,11 +3,14 @@ import axios from "axios";
 import {EtherscanTransactionReceiptResponse} from "../models/responses/EtherscanTransactionReceiptResponse";
 import {EtherscanTransactionsOfTokenResponse} from "../models/responses/EtherscanTransactionsOfTokenResponse";
 
+
 dotenv.config()
 const ETHERSCAN_API_KEY = process.env["ETHERSCAN_API_KEY"]
 
 const MAX_RATE_LIMIT_REACHED = "\"Max rate limit reached\""
 const MAX_RATE_LIMIT_REACHED_HIGHER_RATE = "Max rate limit reached, please use API Key for higher rate limit"
+
+
 
 export async function getSwappedTokensData(txHash: string) {
     try {
@@ -89,6 +92,11 @@ export async function getABIOfErc20TokenData(tokenAddress: string) {
         }
     }
 }
+
+function delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+}
+
 
 
 

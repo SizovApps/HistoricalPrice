@@ -52,11 +52,9 @@ function getPriceOfToken(tokenAddress, blockchainName, timestamp) {
                     if (dexPair == null) {
                         return [2 /*return*/, null];
                     }
-                    console.log("DexPair: ", dexPair);
                     return [4 /*yield*/, (0, GetBlockService_1.getBlockNumberByTimeStamp)(timestamp)];
                 case 2:
                     blockNumber = _a.sent();
-                    console.log("Block number: " + blockNumber);
                     if (blockNumber < 0) {
                         return [2 /*return*/, null];
                     }
@@ -77,10 +75,6 @@ function getPriceOfToken(tokenAddress, blockchainName, timestamp) {
                                         _a.label = 1;
                                     case 1:
                                         if (!(tokenPrice == null && index < result.length)) return [3 /*break*/, 3];
-                                        console.log("result: " + result[index].hash + ", block: " + blockNumber);
-                                        if (result[index].hash == undefined) {
-                                            console.log("UNDEFINED: ", result[index]);
-                                        }
                                         return [4 /*yield*/, (0, DexHandler_1.getSwappedTokens)(dexPair, tokenAddress, result[index].hash)];
                                     case 2:
                                         tokenPrice = _a.sent();

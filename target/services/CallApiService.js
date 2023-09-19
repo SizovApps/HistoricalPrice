@@ -158,3 +158,6 @@ function getABIOfErc20TokenData(tokenAddress) {
     });
 }
 exports.getABIOfErc20TokenData = getABIOfErc20TokenData;
+function delay(ms) {
+    return new Promise(function (resolve) { return setTimeout(resolve, ms); });
+}

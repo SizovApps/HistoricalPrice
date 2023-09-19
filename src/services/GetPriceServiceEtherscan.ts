@@ -15,9 +15,7 @@ export async function getPriceOfToken(tokenAddress: string, blockchainName: stri
     if (dexPair == null) {
         return null
     }
-    console.log("DexPair: ", dexPair)
     const blockNumber = await getBlockNumberByTimeStamp(timestamp)
-    console.log("Block number: " + blockNumber)
     if (blockNumber < 0) {
         return null
     }
@@ -35,10 +33,6 @@ export async function getPriceOfToken(tokenAddress: string, blockchainName: stri
         let tokenPrice = null
         let index = 0
         while (tokenPrice == null && index < result.length) {
-            console.log("result: " + result[index].hash + ", block: " + blockNumber)
-            if (result[index].hash == undefined) {
-                console.log("UNDEFINED: ", result[index])
-            }
             tokenPrice = await getSwappedTokens(dexPair, tokenAddress, result[index].hash)
             index++
         }

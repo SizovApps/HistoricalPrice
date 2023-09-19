@@ -33,3 +33,15 @@
 <p>Дергаем ручку - https://docs.etherscan.io/api-endpoints/contracts#get-contract-abi-for-verified-contract-source-codes.
 Получаем ABI токена. Вызываем функцию decimals(). На основе decimals приводим сумму токенов к корректному виду. Также хэшируем это значение.</p>
 <p>Зная количество ETH и токена, который мы ищем, получаем сумму.</p>
+
+<h2>Запуск:</h2>
+<p>Создать в корне файл ".env":<p>
+<p>INFURA_URL="YOUR_INFURA_URL"<p>
+<p>ETHERSCAN_API_KEY="YOUR_API_KEY"<p>
+<p>В консоли: <p>
+<p>tsc<p>
+<p>node .\target\main.js<p>
+
+<h2>Требования:</h2>
+Не удалось найти решения для запуска 100 вызовов функции в секунду. В Etherscan максимальный RPC = 10 (в PRO версии 30).
+В Infura аналогично.
