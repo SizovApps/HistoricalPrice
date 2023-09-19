@@ -36,19 +36,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var GetPriceServiceMoralis_1 = require("./services/GetPriceServiceMoralis");
+var GetPriceServiceEtherscan_1 = require("./services/GetPriceServiceEtherscan");
 function getHistoricalPrice(tokenAddress, blockchainName, timestamp) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             if (timestamp > Date.now()) {
                 return [2 /*return*/, null];
             }
-            return [2 /*return*/, new GetPriceServiceMoralis_1.GetPriceServiceMoralis().getPriceOfToken(tokenAddress, blockchainName, timestamp)];
+            return [2 /*return*/, (0, GetPriceServiceEtherscan_1.getPriceOfToken)(tokenAddress, blockchainName, timestamp)];
         });
     });
 }
-var i = 0;
-while (i < 100) {
-    getHistoricalPrice("0x02a2eb0f234cc3fd981ee7b8b616e02fb4a3e035", "ETH", 1693913134000).then(function (price) { return console.log("Token price: ", price); });
-    i++;
+for (var i = 0; i < 2; i++) {
+    getHistoricalPrice("0x6213f40e00f4595aa038fa710e3f837b492d6757", "ETH", 1695020375).then(function (price) { return console.log("Token price: ", price); });
 }
